@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="pl"> <!-- Określenie języka dokumentu na polski (pl) -->
+<head>
+    <meta charset="UTF-8"> <!-- Określenie kodowania znaków, aby poprawnie wyświetlać polskie znaki -->
+    <title>Lista zadań</title> <!-- Tytuł strony, który wyświetli się w pasku przeglądarki -->
+</head>
+<body>
+    <h1>Lista zadań</h1> <!-- Nagłówek (h1) z tytułem strony -->
+    
+    <ul> <!-- Rozpoczęcie listy nieuporządkowanej -->
+        {% for id, tytul in zadania %} <!-- Pętla dla każdego zadania w liście 'zadania', gdzie 'id' to identyfikator zadania, a 'tytul' to jego tytuł -->
+            <li> <!-- Element listy (li) -->
+                <a href="{{ url_for('zadanie', id=id) }}">{{ tytul }}</a> <!-- Link do strony zadania, który używa funkcji 'url_for' i generuje URL na podstawie funkcji 'zadanie' z backendu Flask. 'id' zadania jest przekazywane jako parametr w URL, a 'tytul' wyświetlany jest jako tekst linku -->
+            </li>
+        {% endfor %} <!-- Koniec pętli -->
+    </ul> <!-- Zakończenie listy -->
+</body>
+</html>

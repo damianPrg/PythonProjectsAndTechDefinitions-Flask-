@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"> <!-- Definicja kodowania znaków, zapewnia poprawne wyświetlanie polskich znaków -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ustawienie responsywności strony, aby była dobrze wyświetlana na urządzeniach mobilnych -->
+  <title>PythonDeveloper</title> <!-- Tytuł strony, wyświetlany na pasku przeglądarki -->
+
+  <style>
+    /* Stylizacja ogólna */
+    body {
+      font-weight: bold; /* Pogrubienie tekstu */
+      background-color: gray; /* Tło całej strony */
+      font-family: Arial, Helvetica, sans-serif; /* Czcionka strony */
+      justify-content: center; /* Wyrównanie treści do środka */
+      align-items: center; /* Wyrównanie treści do środka */
+      height: 100vh; /* Wysokość strony na 100% ekranu */
+      margin: 0; /* Usunięcie marginesu */
+      text-align: center; /* Wyśrodkowanie tekstu */
+      display: flex; /* Użycie Flexboxa dla layoutu */
+    }
+
+    /* Stylizacja sekcji */
+    .left, .center, .right {
+      background: gray; /* Szare tło dla każdej sekcji */
+      padding: 20px; /* Odstępy wewnętrzne */
+      border-radius: 10px; /* Zaokrąglenie rogów */
+    }
+    
+    /* Szerokości sekcji */
+    .left, .right {
+      width: 25%; /* Sekcje lewe i prawe mają szerokość 25% */
+    }
+    
+    .center {
+      width: 50%; /* Sekcja centralna ma szerokość 50% */
+      text-align: center; /* Wyśrodkowanie tekstu w centralnej sekcji */
+      margin-top: 575px; /* Przesunięcie sekcji w pionie */
+    }
+
+    .table-container {
+      margin-left: 10px; /* Odstęp od lewej */
+      padding: 10px; /* Odstęp wewnętrzny */
+      background-color: white; /* Tło białe */
+      border-radius: 10px; /* Zaokrąglenie rogów */
+      box-shadow: 0 4px 8px rgba(red, green, blue, alpha); /* Cień wokół sekcji */
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Sekcja lewa - Zegar i obrazy -->
+  <div class="left">
+    <!-- Element na zegar -->
+    <div id="clock" style="font-size: 32px; font-weight: bold; color: white; margin-top: 20px;"></div>
+
+    <script>
+      // Funkcja do aktualizacji zegara
+      function updateClock() {
+        const now = new Date();
+        const hours = String(now.getHours()).padStart(2, '0'); // Pobranie godzin z dwu-cyfrowym formatem
+        const minutes = String(now.getMinutes()).padStart(2, '0'); // Pobranie minut
+        const seconds = String(now.getSeconds()).padStart(2, '0'); // Pobranie sekund
+        document.getElementById('clock').innerHTML = hours + ":" + minutes + ":" + seconds; // Aktualizacja zegara w HTML
+      }
+
+      setInterval(updateClock, 1000); // Aktualizacja zegara co sekundę
+      updateClock(); // Pierwsze wywołanie funkcji przy załadowaniu strony
+    </script>
+
+    <!-- Obrazy wyświetlane w lewej sekcji -->
+    <img src="{{ url_for('static', filename='pyt.jpg') }}" alt="pyt.jpg" width="350" height="400">
+    <img src="{{ url_for('static', filename='pythondev.jpg') }}" alt="pythondev.jpg" width="350" height="400">
+  </div>
+  
+  <!-- Sekcja centralna - Treść strony -->
+  <div class="center">
+    <h1>Python</h1>
+
+    <!-- Obrazek związany z Pythonem -->
+    <img src="{{ url_for('static', filename='wez.jpg') }}" alt="" width="450" height="200">
+
+    <!-- Opis Pythona -->
+    <p>
+      Programowanie w Pythonie to proces tworzenia instrukcji dla komputera za pomocą języka programowania Python.  
+      Python jest popularnym językiem wysokiego poziomu, charakteryzującym się prostą i czytelną składnią, co ułatwia zrozumienie i pisanie kodu.  
+      <br><br>
+      Szczegóły:  
+      - Język wysokiego poziomu  
+      - Interpretowany  
+      - Czytelny kod  
+      - Wszechstronny (Web, ML, Automatyzacja)  
+      - Bogata biblioteka standardowa  
+      - Otwarte źródła  
+      - Aktywna społeczność
+      <br><br>
+      Podsumowanie:  
+      Python to łatwy i potężny język do nauki i pracy.
+    </p>
+
+    <!-- Projekty -->
+    <h1>Moje projekty w kivy</h1>
+    <h1>Aplikacja lista zakupów</h1>
+    <video width="600" controls>
+        <source src="{{ url_for('static', filename='ApkaZakupy.mp4') }}" type="video/mp4">
+        Twoja przeglądarka nie obsługuje tagu wideo.
+    </video>
+
+    <h1>Apka Edukacyjna</h1>
+    <video width="600" controls>
+        <source src="{{ url_for('static', filename='AplikacjaEdu.mp4') }}" type="video/mp4">
+        Twoja przeglądarka nie obsługuje tagu wideo.
+    </video>
+  </div>
+
+  <!-- Sekcja prawa - Linki i formularze -->
+  <div class="right" style="display: flex; flex-direction: column; margin-top: -90px;">
+    <!-- Link do GitHub -->
+    <a href="https://github.com/damianPrg" target="_blank">
+      <img src="{{ url_for('static', filename='logogit.jpg') }}" alt="GitHub" width="250">
+    </a>
+
+    <!-- Link do LinkedIn -->
+    <a href="https://www.linkedin.com/in/damian-dyjach-1194ab342" target="_blank">
+      <img src="{{ url_for('static', filename='linkd.jpg') }}" alt="linkedin" width="250">
+    </a>
+
+    <!-- Formularz nawigacyjny do sekcji "Filmy" -->
+    <form action="{{ url_for('video') }}" method="get">
+      <button type="submit" style="font-size: 60px;">Filmy</button>
+    </form>
+
+    <!-- Formularz nawigacyjny do sekcji "Zadania" -->
+    <form action="{{ url_for('zadania') }}" method="get">
+      <button type="submit" style="font-size: 60px;">Zadania</button>
+    </form>
+  </div>
+</body>
+</html>

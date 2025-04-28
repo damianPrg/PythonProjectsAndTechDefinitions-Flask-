@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> <!-- Określenie kodowania znaków, aby poprawnie wyświetlać polskie znaki -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Zapewnienie responsywności strony na urządzeniach mobilnych -->
+    <title>Document</title> <!-- Tytuł strony, wyświetlany w pasku przeglądarki -->
+</head>
+<body>
+
+    <!-- Sekcja stylów CSS wstawiona bezpośrednio w body -->
+    <style>
+        /* Globalna stylizacja dla całej strony */
+        body {
+          font-weight: bold; /* Pogrubienie tekstu */
+          background-color: gray; /* Szare tło */
+          font-family: Arial, Helvetica, sans-serif; /* Ustawienie czcionki */
+          justify-content: center; /* Wyśrodkowanie zawartości w poziomie */
+          align-items: center; /* Wyśrodkowanie zawartości w pionie */
+          height: 100vh; /* Wysokość strony na pełny ekran */
+          margin: 0; /* Usunięcie marginesów */
+          text-align: center; /* Wyśrodkowanie tekstu */
+          display: flex; /* Użycie Flexbox do organizacji układu */
+        }
+
+        /* Stylowanie trzech sekcji: lewa, centralna, prawa */
+        .left, .center, .right {
+          background: gray; /* Szare tło dla sekcji */
+          padding: 20px; /* Odstępy wewnętrzne */
+          border-radius: 10px; /* Zaokrąglone rogi */
+        }
+
+        .left, .right {
+          width: 25%; /* Szerokość lewej i prawej sekcji */
+        }
+
+        .center {
+          width: 50%; /* Szerokość centralnej sekcji */
+          text-align: center; /* Wyśrodkowanie tekstu */
+          margin-top: 1250px; /* Przesunięcie sekcji w pionie */
+        }
+
+        .table-container {
+          margin-left: 10px; /* Odstęp od lewej strony */
+          padding: 10px; /* Odstęp wewnętrzny */
+          background-color: white; /* Białe tło */
+          border-radius: 10px; /* Zaokrąglenie rogów */
+          box-shadow: 0 4px 8px rgba(red, green, blue, alpha); /* Cień wokół sekcji */
+        }
+
+    </style>
+
+    <!-- Centralna sekcja strony, gdzie wyświetlane są filmy -->
+    <div class="center">
+        <!-- Sekcja dla pierwszego filmu VPN -->
+        <h1>VPN</h1>
+        <video width="600" controls> <!-- Kontener wideo z szerokością 600px i kontrolkami -->
+            <source src="{{ url_for('static', filename='VPN.mp4') }}" type="video/mp4"> <!-- Źródło wideo -->
+            Twoja przeglądarka nie obsługuje tagu wideo. <!-- Wiadomość, jeśli przeglądarka nie obsługuje HTML5 wideo -->
+        </video>
+
+        <!-- Sekcja dla drugiego filmu DHCP -->
+        <h1>DHCP</h1>
+        <video width="600" controls>
+            <source src="{{ url_for('static', filename='DHCP.mov') }}" type="video/mp4">
+            Twoja przeglądarka nie obsługuje tagu wideo.
+        </video>
+
+        <!-- Sekcja dla trzeciego filmu Firewall -->
+        <h1>Firewall</h1>
+        <video width="600" controls>
+            <source src="{{ url_for('static', filename='Firewall.mp4') }}" type="video/mp4">
+            Twoja przeglądarka nie obsługuje tagu wideo.
+        </video>
+
+        <!-- Sekcja dla czwartego filmu Procesor -->
+        <h1>Procesor</h1>
+        <video width="600" controls>
+            <source src="{{ url_for('static', filename='procesor.mp4') }}" type="video/mp4">
+            Twoja przeglądarka nie obsługuje tagu wideo.
+        </video>
+
+        <!-- Sekcja dla piątego filmu Router -->
+        <h1>Router</h1>
+        <video width="600" controls>
+            <source src="{{ url_for('static', filename='router.mp4') }}" type="video/mp4">
+            Twoja przeglądarka nie obsługuje tagu wideo.
+        </video>
+    </div>
+
+</body>
+</html>

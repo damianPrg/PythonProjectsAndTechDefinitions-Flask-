@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="pl"> <!-- Określenie języka dokumentu na polski (pl) -->
+<head>
+    <meta charset="UTF-8"> <!-- Określenie kodowania znaków, aby poprawnie wyświetlać polskie znaki -->
+    <title>{{ zadanie[0] }}</title> <!-- Dynamiczny tytuł strony, wyświetlany w pasku przeglądarki. Zmienna zadanie[0] jest tytułem zadania, pobieranym z backendu (Flask) -->
+</head>
+<body>
+    <h1>{{ zadanie[0] }}</h1> <!-- Wyświetlenie tytułu zadania w nagłówku (h1) -->
+    <p>{{ zadanie[1] }}</p> <!-- Wyświetlenie treści zadania (opis) w paragrafie -->
+    <a href="{{ url_for('zadania') }}">Powrót do listy zadań</a> <!-- Link do powrotu na stronę z listą zadań -->
+</body>
+</html>
